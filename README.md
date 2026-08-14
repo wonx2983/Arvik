@@ -1,26 +1,51 @@
 # Arvik
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Platform-Windows-blue?style=for-the-badge&logo=windows" />
-  <img src="https://img.shields.io/badge/Version-1.0.0-purple?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Platform-Windows%2010%2B-0078D4?style=for-the-badge&logo=windows11&logoColor=white" />
+  <img src="https://img.shields.io/badge/Status-Beta-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/License-Proprietary-333333?style=for-the-badge" />
 </p>
 
 <p align="center">
-  <b>Your AI-powered desktop assistant for Windows.</b><br/>
-  Voice & text control · Smart memory · Browser automation · Multi-agent tasks
+  <b>An AI-powered desktop assistant that actually controls your computer.</b><br/>
+  Voice & text · Full desktop control · Browser automation · Multi-agent background tasks · Persistent memory
 </p>
+
+---
+
+## What Arvik Does
+
+Arvik is a Windows desktop assistant that goes beyond just answering questions. It can see your screen, control your mouse and keyboard, automate browsers, manage files, create documents, and run background agents for complex tasks — all through natural voice or text commands.
 
 ---
 
 ## ✨ Features
 
-- **🎙️ Voice & Text Control** — Talk to Arvik or type commands naturally
-- **🧠 Persistent Memory** — Remembers your preferences, past conversations, and context
-- **🌐 Browser Automation** — Automates web tasks in the background using a headless browser
-- **🤖 Multi-Agent System** — Spawns specialized agents for complex tasks
-- **📅 Task Scheduler** — Schedule commands to run at specific times
-- **🔒 Secure** — End-to-end encrypted communication, local-first data storage
+### 🖥️ Desktop Control
+Arvik can operate your computer like a human would — open and close apps, click, type, scroll, press hotkeys, take screenshots, and analyze what's on screen using vision.
+
+### 🎙️ Voice & Text
+Talk to Arvik naturally or type commands in the chat. Conversations are context-aware and multi-turn — Arvik remembers what you said earlier in the conversation.
+
+### 🌐 Browser Automation
+A full headless browser runs invisibly in the background. Arvik can navigate websites, click elements, fill forms, upload files, handle dialogs, take page screenshots, and extract content — all without touching your visible browser.
+
+### 🤖 Multi-Agent System
+For complex tasks, Arvik spawns autonomous background agents. Each agent works independently — researching, creating files, browsing the web, running commands — then reports back when done. Multiple agents can run in parallel while you keep working.
+
+### 📁 File & Document Operations
+Create, read, edit, move, copy, delete, rename, and search files and folders. Read PDFs, Excel, PowerPoint, Word, CSV, and images (via AI vision). Create documents from scratch — PDFs, Excel workbooks, PowerPoint presentations, and Word documents.
+
+### 🧠 Persistent Memory
+Arvik remembers your preferences, facts about you, and key information across sessions. Memory is stored locally on your machine. Context is automatically recalled when relevant.
+
+### 📅 Task Scheduler
+Schedule commands to run at specific times or on recurring schedules. Set it up before bed and wake up to completed tasks.
+
+### 🔍 Web Search
+Search the web in real-time, synthesize results, and get current information with sources — all from a voice or text command.
+
+---
 
 ## 📥 Download
 
@@ -28,47 +53,62 @@
 
 Or grab the latest release from the [Releases](https://github.com/wonx2983/Arvik/releases/latest) page.
 
-## 🚀 Getting Started
+### Installation
 
 1. Download `ArvikSetup.zip` from the latest release
-2. Extract the zip and run `ArvikSetup-1.0.0.exe`
-3. Follow the setup wizard:
-   - Enter your **invite code** (received via email)
-   - Set your **display name**
-4. Start using Arvik!
+2. Extract and run the installer (`ArvikSetup.exe`)
+3. The setup wizard will ask for:
+   - **Invite code** — received via email (Arvik is invite-only during beta)
+   - **Display name** — how Arvik addresses you
+4. Arvik starts automatically and lives in your system tray
+
+---
 
 ## 💻 System Requirements
 
-| Requirement | Minimum |
+| Requirement | Details |
 |------------|---------|
-| OS | Windows 10 (64-bit) or later |
-| RAM | 4 GB |
-| Disk | 500 MB free space |
-| Internet | Required for AI processing |
+| **OS** | Windows 10 (64-bit) or later |
+| **RAM** | 4 GB minimum |
+| **Disk** | ~500 MB free space |
+| **Internet** | Required |
+| **Microphone** | Optional — needed for voice commands |
 
-## 🏗️ Architecture
+---
+
+## 🏗️ How It Works
 
 ```
 ┌─────────────────────────────────────────┐
-│           Electron (Frontend)           │
-│  React UI · Custom Titlebar · HUD      │
+│         Arvik Desktop App               │
+│   Chat UI · Agents · Scheduler · Tray   │
 ├─────────────────────────────────────────┤
-│        WebSocket Bridge (9147)          │
+│         Local Backend                   │
+│   Desktop control · Browser engine      │
+│   Memory · Voice · Privacy controls     │
 ├─────────────────────────────────────────┤
-│         Python Backend (bridge.exe)     │
-│  Memory · Agents · Browser · Scheduler  │
-├─────────────────────────────────────────┤
-│          Arvik Cloud Server             │
-│    AI Processing · Auth · Sync          │
+│         Arvik Cloud                     │
+│   AI processing · Auth · Sync           │
 └─────────────────────────────────────────┘
 ```
 
+1. **You speak or type** → your message is sent securely to Arvik Cloud
+2. **AI reasons** → the AI decides what to do and which tools to use
+3. **Actions execute** → desktop actions run locally on your PC, other operations run server-side
+4. **You get a response** → voice and/or text. Background agents notify you when they're done
+
+---
+
 ## 🔐 Privacy & Security
 
-- Voice data is processed and discarded — never stored on servers
-- Local memory database stays on your machine (`%APPDATA%\Arvik\`)
-- All server communication uses TLS encryption
-- Invite-only access with JWT authentication
+- **Voice data** is processed for transcription and immediately discarded — never stored
+- **Memory** stays on your machine — your data doesn't leave your PC
+- **All communication** is encrypted (TLS/WSS)
+- **Invite-only access** with token-based authentication
+- **Privacy controls** let you define sensitive apps and windows that Arvik won't interact with
+- **Desktop actions are local** — the server sends instructions, your PC executes them. No screen data leaves your machine unless you explicitly ask Arvik to analyze something on screen
+
+---
 
 ## 📄 Legal
 
